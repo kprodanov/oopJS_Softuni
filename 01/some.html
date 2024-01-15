@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My 1st HTML Practice</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1>Trying best of me in HTML</h1>
+    <!-- <p>This is a paragraph. Going down</p>-->
+    <h2>This is the program now. Will run JavaScript code here:</h2>
+
+    <div id="output"></div>
+    <div id="output2"></div>
+
+    <script src="projectCalc.js"></script>
+    <script>
+        function typeEffect(element, speed) {
+            let text = element.getAttribute('data-text');
+            let i = 0;
+            let timer = setInterval(function() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, speed);
+        }
+
+        // Initialize on window load
+        window.onload = function() {
+            const output1 = document.getElementById('output');
+            const output2 = document.getElementById('output2');
+            typeEffect(output1, 500); // Speed in milliseconds
+            setTimeout(() => typeEffect(output2, 1000), 2000); // Start the second after a pause
+        };
+        </script>
+
+</body>
+
+</html>
